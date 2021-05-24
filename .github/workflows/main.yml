@@ -10,13 +10,8 @@ jobs:
 
   prebuild:
     runs-on: ubuntu-latest
+    container:
+      image: wehostasia/ansible:2.8
     steps:
       - name: Display echo file
-        uses: docker://wehostasia/ansible:2.8
         run: ansible --version
-
-  pre-prod:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Display preprod
-        run: echo "Pre production deploy"
