@@ -3,7 +3,7 @@ name: Build Template
 on:
   push:
     branches: [master]
-  pul_request:
+  pull_request:
     branches: [master]
 
 jobs:
