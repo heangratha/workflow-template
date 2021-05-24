@@ -1,0 +1,19 @@
+name: Build Template
+
+on:
+  push:
+    branches: [master]
+  pul_request:
+    branches: [master]
+
+jobs:
+
+  prebuild:
+    steps:
+      - name: Display echo file
+        run: echo "Build Template"
+
+  pre-prod:
+    steps:
+      - name: Display preprod
+        run: echo "Pre production deploy"
