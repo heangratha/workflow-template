@@ -17,9 +17,7 @@ jobs:
       - name: Add ssh private key
         env:
           SSH_RSA: ${{ secrets.SSH_SERVER1 }}
-        run: |
-          printf $SSH_RSA
-          
+        run: printf $SSH_RSA
 #          mkdir -p ~/.ssh && chmod 700 ~/.ssh
 #          mkdir -p ~/.ansible && chmod 755 ~/.ansible
 #          echo $SSH_RSA > ~/.ssh/id_rsa
