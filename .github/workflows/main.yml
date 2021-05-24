@@ -16,11 +16,11 @@ jobs:
       - uses: actions/checkout@v1
       - name: Add ssh private key
         env:
-          SSH_SERVER1: ${{ secrets.SSH_SERVER1 }}
+          SSH_RSA: ${{ secrets.SSH_SERVER1 }}
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           mkdir -p ~/.ansible && chmod 755 ~/.ansible
-          ssh-add - <<< "$SSH_SERVER1"
+          ssh-add - <<< "$SSH_RSA"
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
           chmod 600 ~/.ssh/config
 
