@@ -10,7 +10,22 @@ jobs:
 
   prebuild:
     runs-on: ubuntu-latest
-
+    container:
+      image: wehostasia/ansible:2.8
     steps:
+      - uses: actions/checkout@v1
       - name: Add ssh private key
-        run: ssh -i ${{ secrets.SSH_SERVER1 }} ec2-user@54.91.213.200 'touch /var/tmp/ssh-successful'
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          mkdir -p ~/.ansible && chmod 755 ~/.ansible
+          echo ${{ secrets.SSH_SERVER1 }} > ~/.ssh/id_rsa
+          echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+          chmod 600 ~/.ssh/config
+
+      - name: Show Directories and Files
+        run: |
+          ls -la ~/.ssh/id_rsa
+          cat ~/.ssh/id_rsa
+
+#      - name: Display echo file
+#        run: ansible-playbook config/ansible/playbook.yml -vv
