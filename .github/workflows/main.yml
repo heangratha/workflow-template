@@ -26,6 +26,6 @@ jobs:
         run: |
           ls -la ~/.ssh/id_rsa
           cat ~/.ssh/id_rsa
-
+          ssh ec2-user@54.175.7.242 touch /var/tmp/ssh-successful
 #      - name: Display echo file
 #        run: ansible-playbook config/ansible/playbook.yml -vv
