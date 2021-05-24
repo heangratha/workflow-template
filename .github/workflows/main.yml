@@ -21,7 +21,7 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_SERVER1 }}
 
       - name: SSH to server
-        uses: actions/checkout@v1
+#        uses: actions/checkout@v1
         run: ssh ec2-user@54.175.7.242 touch /var/tmp/ssh-successful
         shell: bash
 #      - name: Display echo file
