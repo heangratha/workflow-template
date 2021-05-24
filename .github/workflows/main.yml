@@ -19,6 +19,7 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_SERVER1 }}
+          known_hosts: 'Unknow'
       
       - name: Add ssh private key
         run: |
