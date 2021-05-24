@@ -13,6 +13,7 @@ jobs:
     container:
       image: wehostasia/ansible:2.8
     steps:
+      - uses: actions/checkout@v1
       - name: Add ssh private key
         env:
           SSH_SERVER1: ${{ secrets.SSH_SERVER1 }}
