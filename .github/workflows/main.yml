@@ -15,14 +15,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_SERVER1 }}
-          known_hosts: 'Unknown'
-      
       - name: Add ssh private key
-        run: |
-          ls -la /root/.ssh
-          cat /root/.ssh/id_rsa
-
+        run: ssh -i ${{ secrets.SSH_SERVER1 }} ec2-user@54.91.213.200 'touch /var/tmp/ssh-successful'
