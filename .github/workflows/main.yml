@@ -18,7 +18,7 @@ jobs:
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           mkdir -p ~/.ansible && chmod 755 ~/.ansible
-          echo ${{ secrets.SSH_SERVER1 }} > ~/.ssh/id_rsa
+          echo ${{secrets.SSH_SERVER1}} > ~/.ssh/id_rsa
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
           chmod 600 ~/.ssh/config
 
