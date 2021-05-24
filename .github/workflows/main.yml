@@ -7,15 +7,16 @@ on:
     branches: [main]
 
 jobs:
+  run:
+    name: Workflow Template
+    runs-on: ubuntu-latest
 
   prebuild:
-    runs-on: ubuntu-latest
     steps:
       - name: Display echo file
         run: echo "Build Template"
 
   pre-prod:
-    runs-on: ubuntu-latest
     steps:
       - name: Display preprod
         run: echo "Pre production deploy"
