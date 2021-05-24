@@ -19,10 +19,10 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_SERVER1 }}
-          known_hosts: 'Unknow'
+          known_hosts: 'Unknown'
       
       - name: Add ssh private key
         run: |
-          ls -la ~/.ssh
-          cat ~/.ssh/id_rsa
+          ls -la /root/.ssh
+          cat /root/.ssh/id_rsa
 
