@@ -10,10 +10,7 @@ jobs:
 
   prebuild:
     runs-on: ubuntu-latest
-    container:
-      image: wehostasia/ansible:2.8
 
     steps:
-      - uses: actions/checkout@v1
       - name: Add ssh private key
         run: ssh -i ${{ secrets.SSH_SERVER1 }} ec2-user@54.91.213.200 'touch /var/tmp/ssh-successful'
