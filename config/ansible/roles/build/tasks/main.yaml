@@ -1,0 +1,7 @@
+---
+
+- name: Create directory
+  file:
+    path: /var/tmp/github-workflow
+    state: directory
+    mode: 0755

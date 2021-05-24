@@ -13,10 +13,17 @@ jobs:
     container:
       image: wehostasia/ansible:2.8
     steps:
-      - name: List current directory
+      - name: Add ssh private key
+        env:
+          SSH_SERVER1: ${{ secrets.SSH_SERVER1 }}
         run: |
-          ls -la
-          pwd
-          whoami
+          'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+          eval $(ssh-agent -s)
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          mkdir -p ~/.ansible && chmod 755 ~/.ansible
+          echo "$SSH_SERVER1" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+          echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+          chmod 600 ~/.ssh/config
+
       - name: Display echo file
-        run: ansible --version
+        run: ansible-playbook config/ansible/playbook.yml -vv
