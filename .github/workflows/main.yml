@@ -12,13 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: wehostasia/ansible:2.8
+
     steps:
+      - uses: actions/checkout@v1
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_SERVER1 }}
-    steps:
-      - uses: actions/checkout@v1
+      
       - name: Add ssh private key
         run: |
           ls -la ~/.ssh
