@@ -18,9 +18,10 @@ jobs:
         env:
           SSH_SERVER1: ${{ secrets.SSH_SERVER1 }}
         run: |
+          eval $(ssh-agent)
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           mkdir -p ~/.ansible && chmod 755 ~/.ansible
-          echo "$SSH_SERVER1" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+          ssh-add - <<< "$SSH_SERVER1"
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
           chmod 600 ~/.ssh/config
 
