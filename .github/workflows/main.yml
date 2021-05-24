@@ -13,5 +13,10 @@ jobs:
     container:
       image: wehostasia/ansible:2.8
     steps:
+      - name: List current directory
+        run: |
+          ls -la
+          pwd
+          whoami
       - name: Display echo file
         run: ansible --version
