@@ -21,4 +21,4 @@ jobs:
 
       - name: Display echo file
         shell: bash
-        run: ansible-playbook config/ansible/playbook.yml -t build-vv
+        run: ansible-playbook config/ansible/playbook.yml -t build -vv
