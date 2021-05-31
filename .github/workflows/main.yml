@@ -10,6 +10,7 @@ jobs:
     container:
       image: wehostasia/ansible:2.8
     steps:
+      uses: actions/checkout@v1
       - name: Add ssh private key
         run: |
           mkdir -p /root/.ssh && chmod 700 /root/.ssh
@@ -17,6 +18,5 @@ jobs:
           chmod 600 /root/.ssh/id_rsa
 
       - name: Display echo file
-        uses: actions/checkout@v1
         shell: bash
         run: ansible-playbook config/ansible/playbook.yml -vv
