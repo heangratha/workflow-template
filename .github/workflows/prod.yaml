@@ -1,11 +1,11 @@
-name: Pre Production
+name: Production
 
 on: [push, pull_request]
 
 jobs:
 
-  preprod:
-    name: "Preprod deploy server"
+  production:
+    name: "Production deploy server"
     runs-on: ubuntu-latest
     container:
       image: wehostasia/ansible:2.8
@@ -21,4 +21,4 @@ jobs:
 
       - name: Display echo file
         shell: bash
-        run: ansible-playbook config/ansible/playbook.yml -t build-vv
+        run: ansible-playbook config/ansible/playbook.yml -t production -vv

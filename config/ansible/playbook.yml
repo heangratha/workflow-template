@@ -3,3 +3,6 @@
 - hosts: all
   roles:
     - role: build
+      tags: build
+    - role: production
+      tags: production

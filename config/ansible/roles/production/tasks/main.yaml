@@ -2,6 +2,6 @@
 
 - name: Create directory
   file:
-    path: /var/tmp/github-workflow
+    path: /var/tmp/github-workflow-production
     state: touch
     mode: 0755
