@@ -1,6 +1,11 @@
 name: Production
 
-on: [push, pull_request]
+on:
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: Git Ref (Optional)
+        required: false
 
 jobs:
 
@@ -11,9 +16,7 @@ jobs:
       image: wehostasia/ansible:2.8
     steps:
       - name: Checkout latest code
-        uses: actions/checkout@v2
-        with:
-          path: release
+        uses: actions/checkout@v1
 
       - name: Add ssh private key
         run: |

@@ -11,9 +11,7 @@ jobs:
       image: wehostasia/ansible:2.8
     steps:
       - name: Checkout latest code
-        uses: actions/checkout@v2
-        with:
-          path: main
+        uses: actions/checkout@v1
 
       - name: Add ssh private key
         run: |
