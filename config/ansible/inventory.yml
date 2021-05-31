@@ -8,6 +8,6 @@ all:
 
   hosts:
     server1:
-      ansible_host: 54.91.213.200
-      ansible_user: ec2-user
-      ansible_ssh_private_key_file: ~/.ssh/id_rsa
+      ansible_host: 3.92.182.189
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: /root/.ssh/id_rsa
