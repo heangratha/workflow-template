@@ -16,9 +16,7 @@ jobs:
           echo "${{ secrets.SSH_SERVER1 }}" > /root/.ssh/id_rsa
           chmod 600 /root/.ssh/id_rsa
 
-      - name: SSH to server
-#        uses: actions/checkout@v1
-        run: ssh -o StrictHostKeyChecking=no ubuntu@3.92.182.189 touch /var/tmp/ssh-successful
+      - name: Display echo file
+        uses: actions/checkout@v1
         shell: bash
-#      - name: Display echo file
-#        run: ansible-playbook config/ansible/playbook.yml -vv
+        run: ansible-playbook config/ansible/playbook.yml -vv
